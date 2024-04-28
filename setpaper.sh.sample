@@ -1,0 +1,4 @@
+# hyprctl hyprpaper preload ~/wallpaper/storage/aliases/$1
+echo "Please edit ~/wallpaper/setpaper.sh to fit your monitor (run hyprctl monitors list to see them)"
+# hyprctl hyprpaper wallpaper "DP-1,~/wallpaper/storage/aliases/$1"
+# hyprctl hyprpaper wallpaper "eDP-1,~/wallpaper/storage/aliases/$1"
