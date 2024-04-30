@@ -1,5 +1,7 @@
 use sha256;
 use std::fs;
+use std::os::unix;
+use std::path::Path;
 use std::path::PathBuf;
 use std::process::Command;
 
@@ -40,16 +42,13 @@ fn link(new: &str, links: &str, pool: &str, generate_name: &dyn Fn(Vec<u8>) -> S
             &path.file_name().to_os_string().into_string().unwrap(),
         );
         println!("making symlink: {} -> {}", &original_name, &hashed_name);
-        let mut command = Command::new("ln");
-        command.arg("-s");
-        command.arg(hashed_name); // original name in pool
-        command.arg(original_name); // new symlink in symlink dir
-        command
-            .output()
+        let hashed_name = std::fs::canonicalize(&hashed_name).expect("linking file not fond");
+        let original_name = Path::new(&original_name);
+        unix::fs::symlink(hashed_name, original_name)
             .expect(&format!("Failed to make a symlink on :{:?}", path));
     }
-    fs::remove_dir_all(new).unwrap();
-    fs::create_dir(new).unwrap();
+    //fs::remove_dir_all(new).unwrap();
+    //fs::create_dir(new).unwrap();
 }
 
 fn rename_recursive(dir: fs::ReadDir, generate_name: &dyn Fn(Vec<u8>) -> String) {
