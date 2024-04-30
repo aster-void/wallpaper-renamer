@@ -1,5 +1,6 @@
 use sha256;
 use std::fs;
+use std::path::PathBuf;
 
 fn main() {
     let storage: fs::ReadDir = fs::read_dir("./storage/data").unwrap();
@@ -34,8 +35,8 @@ fn rename_recursive(dir: fs::ReadDir, generate_name: &dyn Fn(Vec<u8>) -> String)
             path,
             new_name.to_owned() + "." + extension
         );
-        if let Ok(_) = fs::read(new_path.clone())
-            && new_path != path
+        if fs::read(new_path.clone()).is_ok()
+            && PathBuf::from(new_path.clone()) != *path
         {
             println!(
                 "file name confliction was found; continuing.. \n{}{}",
