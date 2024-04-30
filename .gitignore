@@ -1,5 +1,7 @@
 storage/
 
+# name of monitor(s) depend on hardware
+setpaper.sh
 
 # Added by cargo
 
