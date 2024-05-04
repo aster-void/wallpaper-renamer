@@ -1,4 +1,15 @@
-# hyprctl hyprpaper preload ~/wallpaper/storage/aliases/$1
+dirname="~/wallpaper"
+monitor="DP-1" # change this
+
+# delete these 2 lines below
 echo "Please edit ~/wallpaper/setpaper.sh to fit your monitor (run hyprctl monitors list to see them)"
-# hyprctl hyprpaper wallpaper "DP-1,~/wallpaper/storage/aliases/$1"
-# hyprctl hyprpaper wallpaper "eDP-1,~/wallpaper/storage/aliases/$1"
+exit 1
+
+
+if [ ! -f ${dirname}/storage/aliases/$1 ]; then
+  echo "File not found! looked at: ${dirname}/storage/aliases/$1"
+  exit 1
+fi
+
+hyprctl hyprpaper preload ${dirname}/storage/aliases/$1
+hyprctl hyprpaper wallpaper "${monitor},${dirname}/storage/aliases/$1"
