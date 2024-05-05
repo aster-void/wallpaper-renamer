@@ -1,4 +1,4 @@
-dirname="~/wallpaper"
+dirname="/home/aster/wallpaper"
 monitor="DP-1" # change this
 
 # delete these 2 lines below
