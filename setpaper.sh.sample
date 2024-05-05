@@ -1,8 +1,11 @@
+#!/usr/bin/env bash
+
 dirname="/home/aster/wallpaper"
+
 monitor="DP-1" # change this
 
 # delete these 2 lines below
-echo "Please edit ~/wallpaper/setpaper.sh to fit your monitor (run hyprctl monitors list to see them)"
+echo "Please edit ${dirname}/setpaper.sh to fit your monitor (run hyprctl monitors list to see them)"
 exit 1
 
 

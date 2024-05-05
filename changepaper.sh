@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 dirname="/home/aster/wallpaper"
+
+# delete previous wallpapers
+rm ${dirname}/storage/wallpaper.jpg
+rm ${dirname}/storage/wallpaper.png
+
 if [[ $1 == *.png ]]; then
   ext="png"
 elif [[ $1 == *.jpg ]]; then
@@ -18,4 +23,4 @@ fi
 cp ${dirname}/storage/aliases/$1 ${dirname}/storage/wallpaper.${ext}
 
 # TODO: change this to reloadpaper.sh
-./setpaper.sh ../wallpaper.${ext}
+./reloadpaper.sh
