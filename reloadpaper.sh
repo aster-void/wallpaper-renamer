@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-dir="/home/aster/wallpaper"
+dir="$HOME/wallpaper"
 
 if [ -f "${dir}/storage/wallpaper.jpg" ]; then
   ext="jpg"

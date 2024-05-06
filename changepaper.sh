@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dirname="/home/aster/wallpaper"
+dirname="$HOME/wallpaper"
 
 # delete previous wallpapers
 rm ${dirname}/storage/wallpaper.jpg
