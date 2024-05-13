@@ -12,8 +12,8 @@ else
 fi
 
 # delete previous wallpapers
-rm ${dirname}/storage/wallpaper.jpg
-rm ${dirname}/storage/wallpaper.png
+rm ${dirname}/storage/wallpaper.jpg 2>/dev/null
+rm ${dirname}/storage/wallpaper.png 2>/dev/null
 
 if [ ! -f ${dirname}/storage/aliases/$1 ]; then
   echo "file '$1' not found!"
