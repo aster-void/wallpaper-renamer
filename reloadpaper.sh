@@ -8,6 +8,7 @@ elif [ -f "${dir}/storage/wallpaper.png" ]; then
 else
   echo "Unknown extension. $(ls "${dir}/storage/" | grep wallpaper)"
 fi
+
 echo "Reloading wallpaper: ${dir}/storage/wallpaper.${ext}..."
 hyprctl hyprpaper preload ${dir}/storage/wallpaper.${ext}
 hyprctl hyprpaper wallpaper "DP-1,${dir}/storage/wallpaper.${ext}"
