@@ -1,8 +1,7 @@
 storage/
 
 # name of monitor(s) depend on hardware
-setpaper.sh
-reloadpaper.sh
+/monitors.local
 
 # Added by cargo
 

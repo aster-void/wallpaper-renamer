@@ -2,7 +2,13 @@
 
 shell scripts in this repo is built for hyprpaper.
 
-# how to use
+## Initialize
+
+run ./init.sh
+
+edit monitor.local to fit your monitor names, separated by space.
+ 
+## how to use
 
 put everything in ./storage/new
 
