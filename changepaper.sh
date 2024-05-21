@@ -22,5 +22,4 @@ fi
 
 cp ${dirname}/storage/aliases/$1 ${dirname}/storage/wallpaper.${ext}
 
-# TODO: change this to reloadpaper.sh
-./reloadpaper.sh
+(cd $dirname; ./reloadpaper.sh)

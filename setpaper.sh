@@ -2,7 +2,7 @@
 
 dirname="$HOME/wallpaper"
 
-monitors=(`cat ./monitors.local`)
+monitors=(`(cd $dirname; cat ./monitors.local)`)
 
 if [ ! -f ${dirname}/storage/aliases/$1 ]; then
   echo "File not found! looked at: ${dirname}/storage/aliases/$1"
