@@ -1,3 +1,3 @@
-if [ ! -f setpaper.sh ]; then
-  cp setpaper.sh.sample setpaper.sh
+if [ ! -f monitors.local ]; then
+  touch monitors.local
 fi
