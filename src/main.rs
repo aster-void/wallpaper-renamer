@@ -6,10 +6,10 @@ use std::path::PathBuf;
 use std::process::Command;
 
 fn main() {
-    // copies everything in ./storage/aliases/ to ./storage/data
-    let mut command = Command::new("cp");
-    command.arg("./storage/new/*");
-    command.arg("./storage/data/");
+    // copies everything in ./storage/new/ to ./storage/data
+    let mut command = Command::new("sh");
+    command.arg("-c");
+    command.arg("cp ./storage/new/* ./storage/data/");
     command.output().expect("couldn't copy from ./storage/new");
 
     // file renamer
