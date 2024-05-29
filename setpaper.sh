@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
-dirname=$(cd $(dirname $0); pwd)
-monitors=(`(cd $dirname; cat ./monitors.local)`)
+cd $(dirname -- "$0")
+dir=$(pwd)
+monitors=(`(cd $dir; cat ./monitors.local)`)
 
-if [ ! -f ${dirname}/storage/aliases/$1 ]; then
-  echo "File not found! looked at: ${dirname}/storage/aliases/$1"
+path="${dir}/storage/$1"
+if [ ! -f "$path" ]; then
+  echo "File not found! looked at: ${dir}/storage/$1"
   exit 1
 fi
 
-hyprctl hyprpaper preload ${dirname}/storage/aliases/$1
-for monitor in ${monitors[@]}; do
-  hyprctl hyprpaper wallpaper "${monitor},${dirname}/storage/aliases/$1"
+hyprctl hyprpaper preload "${path}"
+for monitor in "${monitors[@]}"; do
+  hyprctl hyprpaper wallpaper "${monitor},${path}"
 done

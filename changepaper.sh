@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
-dirname=$(cd $(dirname $0); pwd)
+dir="$(cd $(dirname -- $0); pwd)"
+cd $dir
 
+# assertions
+if [ ! -f ${dir}/storage/$1 ]; then
+  echo "file '$1' not found!"
+  exit 1
+fi
 if [[ $1 == *.png ]]; then
   ext="png"
 elif [[ $1 == *.jpg ]]; then
@@ -11,14 +17,9 @@ else
 fi
 
 # delete previous wallpapers
-rm ${dirname}/storage/wallpaper.jpg 2>/dev/null
-rm ${dirname}/storage/wallpaper.png 2>/dev/null
+rm ./storage/wallpaper.jpg 2>/dev/null
+rm ./storage/wallpaper.png 2>/dev/null
 
-if [ ! -f ${dirname}/storage/aliases/$1 ]; then
-  echo "file '$1' not found!"
-  exit 1
-fi
+cp ./storage/$1 ./storage/wallpaper.${ext}
 
-cp ${dirname}/storage/aliases/$1 ${dirname}/storage/wallpaper.${ext}
-
-(cd $dirname; ./reloadpaper.sh)
+./reloadpaper.sh
