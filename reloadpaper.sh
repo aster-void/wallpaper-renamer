@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-dir="$HOME/wallpaper"
+dirname=$(cd $(dirname $0); pwd)
 monitors=(`(cd $dir; cat ./monitors.local)`)
 
 if [ -f "${dir}/storage/wallpaper.jpg" ]; then

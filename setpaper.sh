@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-
-dirname="$HOME/wallpaper"
-
+dirname=$(cd $(dirname $0); pwd)
 monitors=(`(cd $dirname; cat ./monitors.local)`)
 
 if [ ! -f ${dirname}/storage/aliases/$1 ]; then

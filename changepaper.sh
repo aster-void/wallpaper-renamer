@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-dirname="$HOME/wallpaper"
+dirname=$(cd $(dirname $0); pwd)
 
 if [[ $1 == *.png ]]; then
   ext="png"
