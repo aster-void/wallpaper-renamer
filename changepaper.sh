@@ -20,6 +20,6 @@ fi
 rm ./storage/wallpaper.jpg 2>/dev/null
 rm ./storage/wallpaper.png 2>/dev/null
 
-cp ./storage/$1 ./storage/wallpaper.${ext}
+ln -sf ./$1 ./storage/wallpaper.${ext}
 
 ./reloadpaper.sh

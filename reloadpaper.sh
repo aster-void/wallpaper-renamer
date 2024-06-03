@@ -8,7 +8,7 @@ if [ -f "${dir}/storage/wallpaper.jpg" ]; then
 elif [ -f "${dir}/storage/wallpaper.png" ]; then
   ext="png"
 else
-  echo "Unknown extension: $(ls "${dir}/storage/" | grep wallpaper)"
+  echo "Unknown extension or file not found: $(ls "${dir}/storage/" | grep wallpaper)"
   exit 1
 fi
 
